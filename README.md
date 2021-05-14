@@ -1,4 +1,4 @@
-# Terraform on AWS with SRE & IaC DevOps | Real-World 22 Demos
+# Terraform on AWS with SRE & IaC DevOps | Real-World 20 Demos
 <!-- [![Image](https://stacksimplify.com/course-images/hashicorp-certified-terraform-associate-highest-rated.png "HashiCorp Certified: Terraform Associate - 50 Practical Demos")](https://links.stacksimplify.com/hashicorp-certified-terraform-associate) -->
 
 ## Course Modules
