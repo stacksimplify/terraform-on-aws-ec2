@@ -38,7 +38,9 @@ resource "aws_instance" "myec2vm" {
   key_name = var.instance_keypair
   vpc_security_group_ids = [ aws_security_group.vpc-ssh.id, aws_security_group.vpc-web.id   ]
   # Create EC2 Instance in all Availabilty Zones of a VPC  
-  for_each = toset(data.aws_availability_zones.my_azones.names) #toset: converts list into set, In set, removes duplicates, changes either string or int to highest number of arguments form ( if more strings are present in the list, it will convert number as well to string; arranges in order.
+  for_each = toset(data.aws_availability_zones.my_azones.names) #toset: converts list into set, In set, removes duplicates,
+  changes either string or int to highest number of arguments form ( if more strings are present in the list, 
+  it will convert number as well to string; arranges in order.
   availability_zone = each.key # You can also use each.value because for list items each.key == each.value
   tags = {
     "Name" = "For-Each-Demo-${each.key}"
