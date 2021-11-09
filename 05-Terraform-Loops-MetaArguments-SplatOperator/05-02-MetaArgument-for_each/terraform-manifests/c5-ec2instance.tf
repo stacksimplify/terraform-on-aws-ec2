@@ -17,6 +17,7 @@ resource "aws_instance" "myec2vm" {
   # Create EC2 Instance in all Availabilty Zones of a VPC  
   for_each = toset(data.aws_availability_zones.my_azones.names)
   availability_zone = each.key  # You can also use each.value because for list items each.key == each.value
+  # for map it should have value.
   tags = {
     "Name" = "for_each-Demo-${each.value}"
   }
