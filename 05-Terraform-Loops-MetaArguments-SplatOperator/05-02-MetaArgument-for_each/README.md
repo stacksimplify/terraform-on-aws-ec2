@@ -53,8 +53,8 @@ resource "aws_instance" "myec2vm" {
   }
 }
 
-#output: Will create instances in each availability zones and with name tag given and each.key, for every instance it will have name as, For-Each-Demo-ap-south-1, For-Each-Demo-ap-south-2....
-#Note: Both meta-arguments cannot be used in one resource block, if for_each is used then count or any other meta-argument cannot be used.
+#output: Will create instances in each availability zones and with name tag given and each.key, "/n" for every instance it will have name as, For-Each-Demo-ap-south-1, For-Each-Demo-ap-south-2....
+#Note: Both meta-arguments cannot be used in one resource block, "/n"  if for_each is used then count or any other meta-argument cannot be used.
 
 
 ```
