@@ -1,5 +1,6 @@
 # Get latest AMI ID for Amazon Linux2 OS
 data "aws_ami" "amzlinux2" {
+  #use use the most recent ami 
   most_recent      = true
   owners           = ["amazon"]
   filter {

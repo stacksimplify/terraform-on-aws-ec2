@@ -1,4 +1,6 @@
 # Datasource
+
+
 data "aws_ec2_instance_type_offerings" "my_ins_type1" {
   filter {
     name   = "instance-type"
@@ -6,8 +8,8 @@ data "aws_ec2_instance_type_offerings" "my_ins_type1" {
   }
   filter {
     name   = "location"
-    #values = ["us-east-1a"]
-    values = ["us-east-1e"]
+    values = ["us-east-1a"]
+    #values = ["us-east-1e"]
   }
   location_type = "availability-zone"
 }

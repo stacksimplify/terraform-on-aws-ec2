@@ -1,7 +1,7 @@
 # DNS Registration 
 resource "aws_route53_record" "apps_dns" {
   zone_id = data.aws_route53_zone.mydomain.zone_id 
-  name    = "apps.devopsincloud.com"
+  name    = "apps.devopsawsapp.com"
   type    = "A"
   alias {
     name                   = module.alb.this_lb_dns_name

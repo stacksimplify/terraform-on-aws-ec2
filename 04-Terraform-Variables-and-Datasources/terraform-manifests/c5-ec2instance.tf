@@ -1,6 +1,7 @@
 # EC2 Instance
 resource "aws_instance" "myec2vm" {
-  ami = data.aws_ami.amzlinux2.id
+  #ami = data.aws_ami.amzlinux2.id
+  ami = "ami-0c02fb55956c7d316"
   instance_type = var.instance_type
   user_data = file("${path.module}/app1-install.sh")
   key_name = var.instance_keypair
