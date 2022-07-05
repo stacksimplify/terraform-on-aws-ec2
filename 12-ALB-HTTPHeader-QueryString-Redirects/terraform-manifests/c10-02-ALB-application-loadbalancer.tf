@@ -182,7 +182,7 @@ module "alb" {
         protocol    = "HTTPS"
       }]
       conditions = [{
-        host_headers = ["azure-aks101.devopsincloud.com"]
+        host_headers = ["azure-aks101.devopsawsapp.com"]
       }]
     },    
   ]
