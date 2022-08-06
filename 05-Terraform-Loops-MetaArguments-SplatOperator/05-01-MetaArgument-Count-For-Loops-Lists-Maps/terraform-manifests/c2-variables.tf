@@ -1,35 +1,39 @@
+
 # Input Variables
 # AWS Region
 variable "aws_region" {
-  description = "Region in which AWS Resources to be created"
+  description = "Region of aws resources"
   type = string
   default = "us-east-1"
-}
 
+}
 # AWS EC2 Instance Type
 variable "instance_type" {
-  description = "EC2 Instnace Type"
+  description = "EC2 instance type"
   type = string
-  default = "t3.micro"
+  default = "t2.micro"
+
+  
 }
 
 # AWS EC2 Instance Key Pair
+
 variable "instance_keypair" {
-  description = "AWS EC2 Key Pair that need to be associated with EC2 Instance"
+  description = "aws keypair to login"
   type = string
-  default = "terraform-key"
+  default = "NewTerraformkey"
+  
 }
 
-# AWS EC2 Instance Type - List
 variable "instance_type_list" {
-  description = "EC2 Instance Type"
+  description = "instance type while using list"
   type = list(string)
-  default = ["t3.micro", "t3.small", "t3.large"]  
+  default = [ "t3.micro" , "t2.small"]
+
 }
 
-# AWS EC2 Instance Type - Map
 variable "instance_type_map" {
-  description = "EC2 Instance Type"
+  description = "instance type while using list"
   type = map(string)
   default = {
     "dev" = "t3.micro"
