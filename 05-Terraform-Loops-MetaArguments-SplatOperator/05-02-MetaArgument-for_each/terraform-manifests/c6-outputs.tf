@@ -1,15 +1,14 @@
 # Terraform Output Values
-
-
+output "public_ip" {
+  description = "Public Ip of instances"
+  value = [for instance in aws_instance.myec2vm: instance.public_ip]
+}
 # EC2 Instance Public IP with TOSET
 
 # EC2 Instance Public DNS with TOSET
 
 
 # EC2 Instance Public DNS with TOMAP
-
-
-
 /*
 # Additional Important Note about OUTPUTS when for_each used
 1. The [*] and .* operators are intended for use with lists only. 
