@@ -9,6 +9,10 @@ output "public_ip" {
 
 
 # EC2 Instance Public DNS with TOMAP
+output "public_dns" {
+  description = "Public dns of instances"
+  value = {for az,instance in aws_instance.myec2vm: az => instance.public_dns }
+}
 /*
 # Additional Important Note about OUTPUTS when for_each used
 1. The [*] and .* operators are intended for use with lists only. 
