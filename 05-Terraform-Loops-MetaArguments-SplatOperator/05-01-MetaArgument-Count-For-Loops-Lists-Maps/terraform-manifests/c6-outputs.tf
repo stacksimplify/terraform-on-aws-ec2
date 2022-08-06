@@ -19,13 +19,13 @@ output "for_output_map" {
 
 
 # output for loop with map advanced
-output "for_output_map" {
+output "for_output_map_advanced" {
   description = "for loop with map advanced"
   value = {for c, instance in aws_instance.myec2vm: c => instance.public_dns}
 }
 
 #output with generalized splat operator 
-output "for_output_map" {
+output "for_generalized_splat" {
   description = "for loop with map advanced"
   value =aws_instance.myec2vm[*].public_dns
 }
