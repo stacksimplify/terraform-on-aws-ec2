@@ -36,11 +36,12 @@ output "output_v3_1" {
 
 # # Output-2
 # # Filtered Output: Exclude Unsupported Availability Zones
-# output "output_v3_2" {
-#   value = {
-#     for az, details in data.aws_ec2_instance_type_offerings.my_ins_type: 
-#     az => details.instance_types if length(details.instance_types) != 0 }
-# }
+output "output_v3_2" {
+  value = {
+    for az, details in data.aws_ec2_instance_type_offerings.my_ins_type3: 
+    az => details.instance_types if length(details.instance_types) != 0
+  }
+}
 
 # # Output-3
 # # Filtered Output: with Keys Function - Which gets keys from a Map
