@@ -30,7 +30,7 @@ data "aws_ec2_instance_type_offerings" "my_ins_type3" {
 # Basic Output: All Availability Zones mapped to Supported Instance Types
 output "output_v3_1" {
   value = {
-    for az, details in data.aws_ec2_instance_type_offerings.my_ins_type: az => details.instance_types
+    for az, details in data.aws_ec2_instance_type_offerings.my_ins_type3: az => details.instance_types
   }
 }
 
