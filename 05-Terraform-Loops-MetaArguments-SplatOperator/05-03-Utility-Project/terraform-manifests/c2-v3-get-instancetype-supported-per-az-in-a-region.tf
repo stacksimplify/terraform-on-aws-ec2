@@ -58,6 +58,6 @@ output "output_v3_3" {
 # # Filtered Output: As the output is list now, get the first item from list (just for learning)
 output "output_v3_4" {
   value = keys({
-    for az, details in data.aws_ec2_instance_type_offerings.my_ins_type: 
+    for az, details in data.aws_ec2_instance_type_offerings.my_ins_type3: 
     az => details.instance_types if length(details.instance_types) != 0 })[0]
 }
