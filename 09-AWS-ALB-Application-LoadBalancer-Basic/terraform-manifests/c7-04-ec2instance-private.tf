@@ -16,6 +16,9 @@ module "ec2_private" {
     module.vpc.private_subnets[0],
     module.vpc.private_subnets[1]
   ]  
+
+  # just checking my new branch
+
   instance_count         = var.private_instance_count
   user_data = file("${path.module}/app1-install.sh")
   tags = local.common_tags
