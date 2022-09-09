@@ -1,24 +1,40 @@
 # AWS EC2 Instance Terraform Module
 # EC2 Instances that will be created in VPC Private Subnets
-module "ec2_private" {
-  depends_on = [ module.vpc ] # VERY VERY IMPORTANT else userdata webserver provisioning will fail
-  source  = "terraform-aws-modules/ec2-instance/aws"
-  version = "2.17.0"
-  # insert the 10 required variables here
-  name                   = "${var.environment}-vm"
-  ami                    = data.aws_ami.amzlinux2.id
-  instance_type          = var.instance_type
-  key_name               = var.instance_keypair
-  #monitoring             = true
-  vpc_security_group_ids = [module.private_sg.this_security_group_id]
-  #subnet_id              = module.vpc.public_subnets[0]  
-  subnet_ids = [
-    module.vpc.private_subnets[0],
-    module.vpc.private_subnets[1]
-  ]  
-  instance_count         = var.private_instance_count
-  user_data = file("${path.module}/app1-install.sh")
-  tags = local.common_tags
+locals {
+  multiple_instances = {
+    one = {
+      instance_type     = var.instance_type
+      subnet_id         = element(module.vpc.private_subnets, 0)
+  
+    }
+
+    two = {
+      instance_type     = var.instance_type
+      # availability_zone = element(module.vpc.azs, 2)
+      subnet_id         = element(module.vpc.private_subnets, 1)
+    }
+  }
 }
 
+module "ec2_private" {
+    source  = "terraform-aws-modules/ec2-instance/aws"
+  version = "4.1.4"
 
+  for_each = local.multiple_instances
+
+  name = "${var.environment}-vm-${each.key}"
+
+  ami                    = data.aws_ami.amzlinux2.id
+  instance_type          = each.value.instance_type
+  # availability_zone      = each.value.availability_zone
+  subnet_id              = each.value.subnet_id
+  vpc_security_group_ids = [module.security_group.security_group_id]
+
+  
+
+  tags = local.tags
+<<<<<<< HEAD
+}
+=======
+}
+>>>>>>> 8bddb636441e77edfba39d6596406c5517c5e993
