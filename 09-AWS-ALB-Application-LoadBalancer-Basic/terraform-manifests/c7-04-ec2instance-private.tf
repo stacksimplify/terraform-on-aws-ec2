@@ -33,4 +33,8 @@ module "ec2_private" {
   
 
   tags = local.tags
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8bddb636441e77edfba39d6596406c5517c5e993
