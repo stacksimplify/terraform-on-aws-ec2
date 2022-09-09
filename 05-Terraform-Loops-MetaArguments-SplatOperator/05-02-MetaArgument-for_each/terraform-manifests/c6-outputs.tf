@@ -24,3 +24,10 @@ to get the output for a list
 want to handle type conversion we can use "tomap" function too 
 */
 
+
+
+resource "aws_instance" "example" {
+  ami = "adsjflasjdf"
+  instance_type = "t2.micro"
+  
+}

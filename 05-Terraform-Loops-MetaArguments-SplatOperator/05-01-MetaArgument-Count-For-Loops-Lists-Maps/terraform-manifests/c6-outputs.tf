@@ -4,6 +4,12 @@ output "for_output_list" {
   value = [for instance in aws_instance.myec2vm: instance.public_dns]
 }
 
+output "for_PublicIP" {
+  description = "for loop with list"
+  value = [for instance in aws_instance.myec2vm: instance.public_ip]
+}
+
+
 
 
 
