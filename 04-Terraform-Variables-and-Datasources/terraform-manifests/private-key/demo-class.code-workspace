@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../../.."
+		},
+		{
+			"name": "terraform-on-aws-ec2",
+			"path": "../../.."
+		}
+	],
+	"settings": {}
+}
