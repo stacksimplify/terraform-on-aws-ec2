@@ -3,11 +3,7 @@
 ## Step-00: Pre-requisite Note
 - Create a `terraform-key` in AWS EC2 Key pairs which we will reference in our EC2 Instance
 
-## Step-01: Introduction
-### Terraform Concepts
-- Terraform Input Variables
-- Terraform Datasources
-- Terraform Output Values
+!
 
 ### What are we going to learn ?
 1. Learn about Terraform `Input Variable` basics
