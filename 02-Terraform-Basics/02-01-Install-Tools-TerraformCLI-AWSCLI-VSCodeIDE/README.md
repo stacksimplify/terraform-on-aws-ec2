@@ -90,3 +90,4 @@ cat $HOME/.aws/credentials
 ## Step-07: LinuxOS: Terraform & AWS CLI Install
 - [Download Terraform](https://www.terraform.io/downloads.html)
 - [Linux OS - Terraform Install](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+#done#
