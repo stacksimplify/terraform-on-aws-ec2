@@ -25,3 +25,7 @@ resource "aws_autoscaling_notification" "myasg_notifications" {
   ]
   topic_arn = aws_sns_topic.myasg_sns_topic.arn 
 }
+
+# Launch Configuration ASG vs Lauch Template ASG
+# ASG LC: module.autoscaling.autoscaling_group_id
+# ASG LT: aws_autoscaling_group.my_asg.id
