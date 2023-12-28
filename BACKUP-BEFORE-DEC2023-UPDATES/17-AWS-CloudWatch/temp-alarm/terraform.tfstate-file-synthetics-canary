@@ -1,0 +1,53 @@
+{
+  "version": 4,
+  "terraform_version": "0.15.0",
+  "serial": 1,
+  "lineage": "7b023b55-71ba-4058-1d03-421f5a234cda",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "aws_cloudwatch_metric_alarm",
+      "name": "temp",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "actions_enabled": true, 
+            "alarm_actions": [
+              "arn:aws:sns:us-east-1:180789647333:tempasg-11-sns-topic11"
+            ],
+            "alarm_description": "Synthetics alarm metric: SuccessPercent  LessThanThreshold 90",
+            "alarm_name": "Synthetics-Alarm-my-manual-canary2-1",
+            "arn": "arn:aws:cloudwatch:us-east-1:180789647333:alarm:Synthetics-Alarm-my-manual-canary2-1",
+            "comparison_operator": "LessThanThreshold",
+            "datapoints_to_alarm": 1,
+            "dimensions": {
+              "CanaryName": "my-manual-canary2"
+            },
+            "evaluate_low_sample_count_percentiles": "",
+            "evaluation_periods": 1,
+            "extended_statistic": "",
+            "id": "Synthetics-Alarm-my-manual-canary2-1",
+            "insufficient_data_actions": [],
+            "metric_name": "SuccessPercent",
+            "metric_query": [],
+            "namespace": "CloudWatchSynthetics",
+            "ok_actions": [],
+            "period": 300,
+            "statistic": "Average",
+            "tags": {},
+            "tags_all": {},
+            "threshold": 90,
+            "threshold_metric_id": "",
+            "treat_missing_data": "breaching",
+            "unit": ""
+          },
+          "sensitive_attributes": [],
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    }
+  ]
+}

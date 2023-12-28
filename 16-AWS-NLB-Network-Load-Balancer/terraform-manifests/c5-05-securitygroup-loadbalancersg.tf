@@ -2,7 +2,8 @@
 module "loadbalancer_sg" {
   source  = "terraform-aws-modules/security-group/aws"
   #version = "3.18.0"
-  version = "4.0.0"
+  #version = "4.0.0"
+  version = "5.1.0"  
 
   name = "loadbalancer-sg"
   description = "Security Group with HTTP open for entire Internet (IPv4 CIDR), egress ports are all world open"

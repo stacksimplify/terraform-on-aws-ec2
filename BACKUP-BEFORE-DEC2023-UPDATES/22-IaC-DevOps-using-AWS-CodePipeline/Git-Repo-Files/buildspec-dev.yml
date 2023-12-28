@@ -1,0 +1,43 @@
+version: 0.2
+
+env:
+  variables:
+    TERRAFORM_VERSION: "0.15.3"
+    TF_COMMAND: "apply"
+    #TF_COMMAND: "destroy"
+  parameter-store:
+    AWS_ACCESS_KEY_ID: "/CodeBuild/MY_AWS_ACCESS_KEY_ID"
+    AWS_SECRET_ACCESS_KEY: "/CodeBuild/MY_AWS_SECRET_ACCESS_KEY"
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.7
+    on-failure: ABORT       
+    commands:
+      - tf_version=$TERRAFORM_VERSION
+      - wget https://releases.hashicorp.com/terraform/"$TERRAFORM_VERSION"/terraform_"$TERRAFORM_VERSION"_linux_amd64.zip
+      - unzip terraform_"$TERRAFORM_VERSION"_linux_amd64.zip
+      - mv terraform /usr/local/bin/
+  pre_build:
+    on-failure: ABORT     
+    commands:
+      - echo terraform execution started on `date`            
+  build:
+    on-failure: ABORT   
+    commands:
+    # Project-1: AWS VPC, ASG, ALB, Route53, ACM, Security Groups and SNS 
+      - cd "$CODEBUILD_SRC_DIR/terraform-manifests"
+      - ls -lrt "$CODEBUILD_SRC_DIR/terraform-manifests"
+      - terraform --version
+      - terraform init -input=false --backend-config=dev.conf
+      - terraform validate
+      - terraform plan -lock=false -input=false -var-file=dev.tfvars           
+      - terraform $TF_COMMAND -input=false -var-file=dev.tfvars -auto-approve  
+  post_build:
+    on-failure: CONTINUE   
+    commands:
+      - echo terraform execution completed on `date`      
+
+
+    

@@ -1,0 +1,53 @@
+{
+  "version": 4,
+  "terraform_version": "0.15.0",
+  "serial": 1,
+  "lineage": "1720e85c-8dab-b211-42ec-8d55d972f7ed",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "aws_cloudwatch_metric_alarm",
+      "name": "temp",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "actions_enabled": true,
+            "alarm_actions": [
+              "arn:aws:sns:us-east-1:180789647333:tempasg-11-sns-topic11"
+            ],
+            "alarm_description": "temp-alarm",
+            "alarm_name": "temp-alarm",
+            "arn": "arn:aws:cloudwatch:us-east-1:180789647333:alarm:temp-alarm",
+            "comparison_operator": "GreaterThanThreshold",
+            "datapoints_to_alarm": 1,
+            "dimensions": {
+              "LoadBalancer": "app/hr-stag-alb/0a6f6b656983b09f"
+            },
+            "evaluate_low_sample_count_percentiles": "",
+            "evaluation_periods": 1,
+            "extended_statistic": "",
+            "id": "temp-alarm",
+            "insufficient_data_actions": [],
+            "metric_name": "TargetResponseTime",
+            "metric_query": [],
+            "namespace": "AWS/ApplicationELB",
+            "ok_actions": [],
+            "period": 300,
+            "statistic": "Average",
+            "tags": {},
+            "tags_all": {},
+            "threshold": 100,
+            "threshold_metric_id": "",
+            "treat_missing_data": "missing",
+            "unit": ""
+          },
+          "sensitive_attributes": [],
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    }
+  ]
+}
