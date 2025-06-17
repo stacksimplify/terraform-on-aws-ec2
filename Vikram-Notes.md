@@ -1,3 +1,12 @@
+.\terraform destroy -target="aws_instance.my-ec2-instance"
+
+
+
+
+
+
+
+
 count Meta-Argument — Easy Formula
 ✅ Easy-to-Remember Formula:
 
