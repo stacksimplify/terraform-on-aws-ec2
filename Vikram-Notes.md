@@ -1,4 +1,6 @@
-.\terraform destroy -target="aws_instance.my-ec2-instance"
+>.\terraform destroy -target="aws_instance.my-ec2-instance"
+>for list variable use variable "aws_instance_type_list" and same for map with string
+>if used count the update output to list output for each instance like value = [for instance in aws_instance.my-ec2-instance : instance.public_ip]
 
 
 
