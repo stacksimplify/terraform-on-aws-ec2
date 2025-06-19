@@ -1,13 +1,58 @@
+=========================SUPERNOTES==============================================
+>understand block, argument and attribute
+
 >.\terraform destroy -target="aws_instance.my-ec2-instance"
+
 >for list variable use variable "aws_instance_type_list" and same for map with string
+
 >if used count the update output to list output for each instance like value = [for instance in aws_instance.my-ec2-instance : instance.public_ip]
 
+>understand difference between user_data (bootstrp) and datasource (data)
+user_data = file("${path.module}/app1-install.sh")
+# Create a datasource to fetch the Latest Linux AMI ID for the specified region and name
+data "aws_ami" "latest_linux_ami" { # data.aws_ami.latest_linux_ami.id
+
+>`for_each` Meta-Argument # for_each only works with map or set
+- `toset` function
+- `tomap` function
+
+>var.<list_name>[<index>]
+ar.instance_type_list[1]  # => "t3.small"
+
+>var.instance_type_list[1]  # => "t3.small"
+var.<map_name>["<key>"]
+
+>output "<name>" {
+  value = [for <item> in <resource> : <item>.<attribute>]
+output "for_output_list" {
+  value = [for instance in aws_instance.myec2vm : instance.public_dns]
+
+>output "<name>" {
+  value = {for <item> in <resource> : <key_expr> => <value_expr>}
+output "for_output_map1" {
+  value = {for instance in aws_instance.myec2vm : instance.id => instance.public_dns}
+
+>resource "aws_instance" "myec2vm" {
+  ami           = data.aws_ami.amzlinux2.id
+  instance_type = var.instance_type
+  key_name      = var.instance_keypair
+
+  for_each = toset(data.aws_availability_zones.available.names)
+  availability_zone = each.key
+
+  tags = {
+    Name = "For-Each-Demo-${each.key}"
+  }
+}
+
+>for_each only works with map or set
 
 
 
 
 
 
+=====================================================================================
 
 count Meta-Argument — Easy Formula
 ✅ Easy-to-Remember Formula:
