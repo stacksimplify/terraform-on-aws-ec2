@@ -2,7 +2,7 @@
 
 # Resource-1: aws_s3_bucket
 resource "aws_s3_bucket" "mywebsite" {
-  bucket = var.bucket_name  
+  bucket = "myhostingbucket-${random_string.myrandom.result}"
   tags          = var.tags
   force_destroy = true
 }
@@ -57,6 +57,7 @@ resource "aws_s3_bucket_acl" "mywebsite" {
 # Resource-7: aws_s3_bucket_policy
 resource "aws_s3_bucket_policy" "mywebsite" {
   bucket = aws_s3_bucket.mywebsite.id
+  depends_on = [aws_s3_bucket_public_access_block.mywebsite]
 
   policy = <<EOF
 {
@@ -70,12 +71,10 @@ resource "aws_s3_bucket_policy" "mywebsite" {
               "s3:GetObject"
           ],
           "Resource": [
-              "arn:aws:s3:::${var.bucket_name}/*"
+              "arn:aws:s3:::${aws_s3_bucket.mywebsite.id}/*"
           ]
       }
   ]
-}  
+}
 EOF
 }
-
-
