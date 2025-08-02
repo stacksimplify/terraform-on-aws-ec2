@@ -81,7 +81,8 @@ resource "aws_synthetics_canary" "sswebsite2" {
   handler              = "sswebsite2.handler"
   zip_file             = "sswebsite2/sswebsite2v1.zip"
   #runtime_version      = "syn-nodejs-puppeteer-3.1"
-  runtime_version      = "syn-nodejs-puppeteer-6.0" # UPDATED NOV2023
+  #runtime_version      = "syn-nodejs-puppeteer-6.0" # UPDATED NOV2023
+  runtime_version      = "syn-nodejs-puppeteer-6.2" # UPDATED AUG2025
   start_canary = true
 
   run_config {
