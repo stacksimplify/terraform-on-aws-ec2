@@ -1,6 +1,0 @@
-VPC created on Mon Apr 19 15:00:57 IST 2021 and VPC ID: vpc-0124fbdd659d7c887
-VPC created on Tue Nov 28 16:05:45 IST 2023 and VPC ID: vpc-0e6ef02a87ec70c93
-VPC created on Wed Nov 29 08:11:44 IST 2023 and VPC ID: vpc-075259a3b12e2b534
-VPC created on Wed Nov 29 08:27:52 IST 2023 and VPC ID: vpc-01d5390a471670d00
-VPC created on Sat Dec 2 06:32:58 IST 2023 and VPC ID: vpc-02ca7255ad8e243c4
-VPC created on Sat Dec 23 11:28:22 IST 2023 and VPC ID: vpc-04e37bdae8b27216e
