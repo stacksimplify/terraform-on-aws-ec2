@@ -6,7 +6,9 @@
   - terraform validate
   - terraform plan
   - terraform apply
-  - terraform destroy      
+  - terraform destroy     
+
+  ++++++++++++++++++++++++++++++++++++++++ 
 
 ## Step-02: Review terraform manifest for EC2 Instance
 - **Pre-Conditions-1:** Ensure you have **default-vpc** in that respective region
